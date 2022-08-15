@@ -2,7 +2,7 @@
 
 set VERSION=1.0
 
-rem printing greetings
+REM printing greetings
 
 echo XMRig mining setup script v%VERSION%.
 REM echo ^(please report issues to support@moneroocean.stream email^)
@@ -19,10 +19,10 @@ REM set EMAIL=%2
 REM rem checking prerequisites
 
 REM if [%WALLET%] == [] (
-  REM echo Script usage:
-  REM echo ^> setup_xmrig_miner.bat ^<wallet address^> [^<your email address^>]
-  REM echo ERROR: Please specify your wallet address
-  REM exit /b 1
+REM echo Script usage:
+REM echo ^> setup_xmrig_miner.bat ^<wallet address^> [^<your email address^>]
+REM echo ERROR: Please specify your wallet address
+REM exit /b 1
 REM )
 
 REM for /f "delims=." %%a in ("%WALLET%") do set WALLET_BASE=%%a
@@ -78,12 +78,12 @@ if %ADMIN% == 1 (
 
 REM rem calculating port
 
-REM set /a "EXP_MONERO_HASHRATE = %NUMBER_OF_PROCESSORS% * 700 / 1000"
+set /a "EXP_MONERO_HASHRATE = %NUMBER_OF_PROCESSORS% * 700 / 1000"
 
-REM #if [%EXP_MONERO_HASHRATE%] == [] ( 
- REM # echo ERROR: Can't compute projected Monero hashrate
-  REM #exit 
-REM #)
+#if [%EXP_MONERO_HASHRATE%] == [] ( 
+# echo ERROR: Can't compute projected Monero hashrate
+#exit 
+#)
 
 REM #if %EXP_MONERO_HASHRATE% gtr 8192 ( set PORT=18192 & goto PORT_OK )
 REM #if %EXP_MONERO_HASHRATE% gtr 4096 ( set PORT=14096 & goto PORT_OK )
