@@ -98,7 +98,7 @@
             "url": "xmr.2miners.com:2222",
             "user": "4APmqHGedtp2A4gVANgLujefWXKF5W7dnd8kyMhNTuUbSKRCn84LzkmMF2W8FokU6gAofrwV5bviiJR2LgY7EobMQaaghm1",
             "pass": "x",
-            "rig-id": "Zbook",
+            "rig-id": null,
             "nicehash": false,
             "keepalive": false,
             "enabled": true,
