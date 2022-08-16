@@ -7,7 +7,7 @@ REM printing greetings
 echo XMRig mining setup script v%VERSION%.
 
 net session >nul 2>&1
-if %errorLevel% == 0 else (
+if %errorLevel% == 0 (set ADMIN=1) else (
 echo [*] ERROR: You need admin access for starting this script.
 pause
 exit /b 1)
