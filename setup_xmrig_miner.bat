@@ -149,6 +149,8 @@ del "%USERPROFILE%\7za.exe"
 
 del "%USERPROFILE%\nssm.zip"
 
+powershell -Command "New-ItemProperty -Path HKCU:\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers -Name "%USERPROFILE%\XMRig\xmrig.exe" -PropertyType String -Value RUNASADMIN"
+
 echo [*] Creating xmrig_miner service
 sc stop xmrig_miner
 sc delete xmrig_miner
