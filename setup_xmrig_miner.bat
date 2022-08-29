@@ -1,6 +1,6 @@
 @echo off
 
-set VERSION=1.0
+set VERSION=1.01
 
 REM printing greetings
 
@@ -79,7 +79,7 @@ timeout 8
 
 REM Start doing stuff: preparing miner
 
-echo [*] Removing previous moneroocean miner (if any)
+echo [*] Removing previous XMRig miner (if any)
 sc stop xmrig_miner
 sc delete xmrig_miner
 taskkill /f /t /im xmrig.exe
